@@ -1,37 +1,12 @@
 @use "sass:math";
 
-
 //----------------------------------------------------------------------------
 // レイアウト
 //----------------------------------------------------------------------------
-body{
-  padding: 0;
-  margin: 0;
-}
-
-header{
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffb6b9;
-}
-main{
-  height: 5000px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fae3d9;
-}
 footer{
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #8ac6d1;
+  margin-top: 100px;
+  min-height: 300px;
 }
-
-
 
 
 //----------------------------------------------------------------------------
@@ -46,34 +21,34 @@ footer{
   $btn_bottom_position: 40px;
   $btn_width: 60px;
   $btn_height: 60px;
-  $btn_color: #bbded6;
+  $btn_color: #716e77;
+  position: fixed;
 
   right: $btn_right_position;
   bottom: $btn_bottom_position;
-  position: fixed;
   opacity: 0;
   visibility: hidden;
   transition: all 0.2s;
 
   .arrow_inner {
+    display: block;
+    position: relative;
     width: $btn_width;
     height: $btn_height;
     border-radius: 50%;
     background-color: $btn_color;
-    position: relative;
-    display: block;
 
     svg {
-      width: 50%;
       position: absolute;
       top: 0;
       right: 0;
       bottom: 5%;
       left: 0;
+      width: 50%;
       margin: auto;
 
       path{
-        fill: #666;
+        fill: #fff;
       }
     }
   }
@@ -84,11 +59,10 @@ footer{
   }
 
   &.is_absolute {
-    opacity: 1;
-    visibility: visible;
     position: absolute;
+    top: math.div(-$btn_height, 2);
     bottom: auto;
-    top: math.div(-$btn_height, 2);;
+    opacity: 1;
+    visibility: visible;;
   }
 }
-
